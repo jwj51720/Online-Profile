@@ -1,158 +1,179 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>디지털 명함</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장원준 디지털 명함</title>
   <style>
-    /* 사용자 지정 색상 변수 */
     :root {
-      --primary-color: #FFFEEB; /* 은은하고 연한 노랑 */
-      --text-color: #000000;    /* 글자 검정 */
-      --link-color: #0046ff;    /* 포인트 파랑 */
+      --primary-color: #fff;
+      --text-color: #000000;
+      --link-color: #0046ff;
     }
 
-    /* 기본 리셋 */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: var(--primary-color);
+      color: var(--text-color);
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      background: #f2f2f2;
-      font-family: 'Noto Sans KR', sans-serif;
-      color: var(--text-color);
-      padding: 20px;
+      height: 100vh;
     }
 
-    /* 카드 컨테이너 */
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    /* 공통 카드 스타일 */
     .card {
       background: #fff;
-      border-radius: 12px;
-      /* 그림자: 광원은 좌측 상단 → 그림자는 우하단 */
-      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+      padding: 2rem 2.5rem;
+      border-radius: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 1.5px 8px rgba(0,0,0,0.12);
+      max-width: 400px;
+      width: 100%;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .card-header {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
-      flex: 0 1 90%;
-      max-width: 300px;
-    }
-    @media (min-width: 600px) {
-      .card {
-        flex: 0 1 300px;
-      }
+      gap: 1.2rem;
+      margin-bottom: 0.5rem;
     }
 
-    /* 앞면 카드 */
-    .first-card {
-      background: var(--primary-color);
-    }
-    .first-card .title {
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--text-color);
-      text-align: center;
-      line-height: 1.4;
+    .profile-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #eee;
     }
 
-    /* 뒷면 카드 */
-    .second-card {
-      flex-direction: column;
-      text-align: left;
+    .top-row {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.3rem;
     }
-    .second-card .name {
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin-bottom: 12px;
+
+    .name {
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.02em;
     }
-    .second-card p {
-      margin: 4px 0;
-      line-height: 1.4;
+
+    .position {
+      font-size: 0.95rem;
+      color: #555;
     }
-    .second-card a {
+
+    .main-phone {
+      font-size: 1.05rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .divider-row {
+      display: flex;
+      align-items: center;
+      margin: 0.7rem 0 1.1rem 0;
+    }
+
+    .divider {
+      flex: 1;
+      height: 2px;
+      background: #0046ff;
+      margin-right: 0.7rem;
+    }
+
+    .company {
+      color: #0046ff;
+      font-weight: bold;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
+
+    .info {
+      font-size: 0.98rem;
+      color: #444;
+      margin-bottom: 0.2rem;
+    }
+
+    .info a {
       color: var(--link-color);
       text-decoration: none;
     }
-    .second-card a:hover,
-    .second-card a:focus {
-      text-decoration: underline;
-      outline: none;
+
+    .profile-img {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
     }
-    .social {
-      margin-top: 12px;
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 1rem;
+      }
+      .name {
+        font-size: 1.2rem;
+      }
+    }
+
+    .info-list {
+      margin-top: 0.5rem;
+    }
+    .info-item {
+      font-size: 0.98rem;
+      color: #444;
+      margin-bottom: 0.35rem;
+      line-height: 1.7;
       display: flex;
-      gap: 12px;
-    }
-    .social a {
-      font-size: 0.9rem;
-    }
-
-    .profile-img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-
-    .business-card {
-      flex-direction: column;
-      min-width: 300px;
-      max-width: 340px;
-      min-height: 480px;
-      padding-top: 36px;
-      padding-bottom: 36px;
       align-items: center;
-      justify-content: flex-start;
-      background: var(--primary-color);
-      color: var(--text-color);
+      gap: 0.5em;
     }
-    .profile-img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    .info-item a {
+      color: var(--link-color);
+      text-decoration: none;
     }
-    .divider {
-      width: 80%;
-      height: 1px;
-      background: #e0e0e0;
-      margin: 18px 0 20px 0;
-      border: none;
+
+    .link-texts {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5em;
+      margin-top: 1.2rem;
+      font-size: 0.97rem;
+    }
+    .link-texts a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .link-texts a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card business-card" role="region" aria-label="명함">
-      <img src="profile.jpg" alt="프로필 사진" class="profile-img" />
-      <hr class="divider" />
-      <div style="width:100%; display:flex; flex-direction:column; align-items:center; color:var(--text-color);">
-        <div class="name" style="font-size:1.3rem; font-weight:600; margin-bottom:4px; color:var(--text-color);">장원준</div>
-        <div style="font-size:1.05rem; color:#555; margin-bottom:10px; color:var(--text-color);">신한은행 Data기획Unit</div>
-        <div style="font-size:0.98rem; margin-bottom:6px; color:var(--text-color);">서울 중구 세종대로 67 삼성본관빌딩 8층</div>
-        <div style="font-size:0.98rem; margin-bottom:6px; color:var(--text-color);">Mobile. <a href="tel:010-0000-0000" style="color:var(--link-color); text-decoration:none;">010-0000-0000</a></div>
-        <div class="social" style="margin-top:10px;">
-          <a href="https://github.com/jwj51720" target="_blank" aria-label="깃허브 열기" style="color:var(--link-color);">GitHub</a>
-          <a href="https://www.linkedin.com/in/jang-wonjun/" target="_blank" aria-label="링크드인 열기" style="color:var(--link-color);">LinkedIn</a>
+  <div class="card">
+    <div class="card-header">
+      <img src="profile.jpg" alt="프로필 사진" class="profile-photo">
+      <div>
+        <div class="top-row">
+          <span class="name">장원준</span>
+          <span class="position">프로 / Data기획Unit</span>
         </div>
+        <div class="info"><a href="mailto:jwj51720@gmail.com">jwj51720@gmail.com</a> | <a href="https://github.com/jwj51720" target="_blank">Github</a> | <a href="https://www.linkedin.com/in/jang-wonjun/" target="_blank">LinkedIn</a></div>
       </div>
+    </div>
+    <div class="divider-row">
+      <div class="divider"></div>
+      <div class="company">신한은행</div>
+    </div>
+    <div class="info-list">
+      <div class="info-item">📍 서울특별시 중구 세종대로 67, 삼성본관빌딩 8층</div>
+      <div class="info-item">📞 02-2151-3897</div>
+      <div class="info-item">📧 <a href="mailto:jangwonjun@shinhan.com" aria-label="이메일로 연락">jangwonjun@shinhan.com</a></div>
     </div>
   </div>
 </body>
