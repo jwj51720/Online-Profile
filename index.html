@@ -7,7 +7,7 @@
   <style>
     /* 사용자 지정 색상 변수 */
     :root {
-      --primary-color: #fff9c4; /* 은은하고 연한 노랑 */
+      --primary-color: #FFFEEB; /* 은은하고 연한 노랑 */
       --text-color: #000000;    /* 글자 검정 */
       --link-color: #0046ff;    /* 포인트 파랑 */
     }
@@ -118,6 +118,8 @@
       padding-bottom: 36px;
       align-items: center;
       justify-content: flex-start;
+      background: var(--primary-color);
+      color: var(--text-color);
     }
     .profile-img {
       width: 90px;
@@ -141,14 +143,14 @@
     <div class="card business-card" role="region" aria-label="명함">
       <img src="profile.jpg" alt="프로필 사진" class="profile-img" />
       <hr class="divider" />
-      <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
-        <div class="name" style="font-size:1.3rem; font-weight:600; margin-bottom:4px;">장원준</div>
-        <div style="font-size:1.05rem; color:#555; margin-bottom:10px;">신한은행 Data기획Unit</div>
-        <div style="font-size:0.98rem; margin-bottom:6px;">서울 중구 세종대로 67 삼성본관빌딩 8층</div>
-        <div style="font-size:0.98rem; margin-bottom:6px;">Mobile. <a href="tel:010-0000-0000" style="color:var(--link-color); text-decoration:none;">010-0000-0000</a></div>
+      <div style="width:100%; display:flex; flex-direction:column; align-items:center; color:var(--text-color);">
+        <div class="name" style="font-size:1.3rem; font-weight:600; margin-bottom:4px; color:var(--text-color);">장원준</div>
+        <div style="font-size:1.05rem; color:#555; margin-bottom:10px; color:var(--text-color);">신한은행 Data기획Unit</div>
+        <div style="font-size:0.98rem; margin-bottom:6px; color:var(--text-color);">서울 중구 세종대로 67 삼성본관빌딩 8층</div>
+        <div style="font-size:0.98rem; margin-bottom:6px; color:var(--text-color);">Mobile. <a href="tel:010-0000-0000" style="color:var(--link-color); text-decoration:none;">010-0000-0000</a></div>
         <div class="social" style="margin-top:10px;">
-          <a href="https://github.com/jwj51720" target="_blank" aria-label="깃허브 열기">GitHub</a>
-          <a href="https://www.linkedin.com/in/jang-wonjun/" target="_blank" aria-label="링크드인 열기">LinkedIn</a>
+          <a href="https://github.com/jwj51720" target="_blank" aria-label="깃허브 열기" style="color:var(--link-color);">GitHub</a>
+          <a href="https://www.linkedin.com/in/jang-wonjun/" target="_blank" aria-label="링크드인 열기" style="color:var(--link-color);">LinkedIn</a>
         </div>
       </div>
     </div>
