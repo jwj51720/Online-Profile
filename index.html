@@ -13,7 +13,7 @@
 
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: 'NanumSquareNeo', 'Noto Sans KR', sans-serif;
       background-color: var(--primary-color);
       color: var(--text-color);
       display: flex;
@@ -24,12 +24,11 @@
 
     .card {
       background: #fff;
-      padding: 2rem 2.5rem;
+      padding: 1.2rem 1.3rem;
       border-radius: 0;
       box-shadow: 0 8px 32px rgba(0,0,0,0.28), 0 1.5px 8px rgba(0,0,0,0.12);
       max-width: 400px;
       width: 100%;
-      font-family: 'Noto Sans KR', sans-serif;
     }
 
     .card-header {
@@ -56,7 +55,7 @@
 
     .name {
       font-size: 1.3rem;
-      font-weight: bold;
+      font-weight: 800;
       letter-spacing: 0.02em;
     }
 
@@ -85,7 +84,7 @@
 
     .company {
       color: #0046ff;
-      font-weight: bold;
+      font-weight: 800;
       font-size: 1.05rem;
       white-space: nowrap;
     }
@@ -151,6 +150,31 @@
     }
     .link-texts a:hover {
       text-decoration: underline;
+    }
+
+    @font-face {
+      font-family: 'NanumSquareNeo';
+      src: url('./font/NanumSquareNeo-aLt.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NanumSquareNeo';
+      src: url('./font/NanumSquareNeo-bRg.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NanumSquareNeo';
+      src: url('./font/NanumSquareNeo-cBd.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NanumSquareNeo';
+      src: url('./font/NanumSquareNeo-dEb.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
     }
   </style>
 </head>
